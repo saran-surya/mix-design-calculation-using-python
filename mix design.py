@@ -1,3 +1,6 @@
+#updated the same procedure to javascript ans running that in backend of the website
+# saran-surya.github.io/webd-1
+
 def inputs():
     #height=float(input("Height of concreting : "))                                                     
     #breadth=float(input("Breadth of conrcreting : "))
