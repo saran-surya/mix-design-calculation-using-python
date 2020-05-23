@@ -7,30 +7,30 @@ def inputs():
     #lenght=float(input("Length of concreting : "))
     
     
-    exp_s=concretegradefin()
+    exp_s = concretegradefin()
     print(exp_s)
-    cc=conditions_wc_1(exp_s)#step 2
-    target=target_s(int(cc[2]))#step 1
-    water_cement_ratio=cc[1]
-    min_cement=cc[0]
-    cement_grade=cc[2]
+    cc = conditions_wc_1(exp_s)#step 2
+    target = target_s(int(cc[2]))#step 1
+    water_cement_ratio = cc[1]
+    min_cement = cc[0]
+    cement_grade = cc[2]
     print(cc)
-    workablity=workablity_1()
-    aggreate_max_size=aggreatesize()#nominal aggreate size
-    water_content_kg_a=w_content(aggreate_max_size,workablity)#water content
-    water_content_kg=water_content_kg_a[0]
+    workablity = workablity_1()
+    aggreate_max_size = aggreatesize()#nominal aggreate size
+    water_content_kg_a = w_content(aggreate_max_size, workablity)#water content
+    water_content_kg = water_content_kg_a[0]
     print("water content rounded off to",water_content_kg,"kg")
-    cement_content_kg=c_content(water_cement_ratio,water_content_kg)
+    cement_content_kg = c_content(water_cement_ratio, water_content_kg)
     print("min cement required",min_cement,"\ncement grade",cement_grade,"\ncement content",cement_content_kg,"\nfck",target)
-    propotion=ca_fa_prop(aggreate_max_size,water_cement_ratio)
-    propotion_1=(round(propotion,2))
-    ca_fa_prop_1=ca_fa_prop_2(propotion_1)
-    coarseag,fineag=ca_fa_prop_1[0],ca_fa_prop_1[1]
-    finaldesign=mixcalc(coarseag,fineag,cement_content_kg,water_content_kg,water_content_kg_a[1])
+    propotion = ca_fa_prop(aggreate_max_size, water_cement_ratio)
+    propotion_1 = (round (propotion,2) )
+    ca_fa_prop_1 = ca_fa_prop_2(propotion_1)
+    coarseag,fineag = ca_fa_prop_1[0],ca_fa_prop_1[1]
+    finaldesign = mixcalc(coarseag,fineag,cement_content_kg,water_content_kg,water_content_kg_a[1])
     print("\n\n\n")
     print("water content\t=\t",water_content_kg)
     print("\ncement content\t=\t",cement_content_kg)
-    if(finaldesign[2]==1):
+    if(finaldesign[2] == 1):
         print("\nadmixture content\t=\t7 kg")
     print("\nfine aggreate content\t=\t",finaldesign[1])
     print("\ncoarse aggreate content\t=\t",finaldesign[0])
@@ -38,15 +38,15 @@ def inputs():
 
 
 def workablity_1():
-    x=float(input("please type your workablity,\n{if you want to exit please press'0'}\n minimum workablity is 15\nworkablity in mm : "))
-    if(int(x)==0):
+    x=float( input ("please type your workablity,\n{if you want to exit please press'0'}\n minimum workablity is 15\nworkablity in mm : "))
+    if(int(x) == 0):
         import sys
         sys.exit()
-    elif(x>=15.0):
-        return(x)
+    elif(x >= 15.0):
+        return( x )
     else:
         print("type workablity more than 15mm!!")
-        return(workablity_1())
+        return( workablity_1() )
 
 def mixcalc(ca,fa,cc,wc,con):
     cc_1=1
